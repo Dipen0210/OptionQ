@@ -58,24 +58,40 @@ A quantitative options trading system that **detects market regimes**, **selects
 
 ## 🛠 Tech Stack
 
-* **Backend / Quant**: Python, NumPy, Pandas, statsmodels
-* **Visualization**: Matplotlib
-* **API & Services**: Flask
-* **Frontend**: ReactJS
+* **Backend / Quant**: Python, NumPy, Pandas, SciPy, scikit-learn, statsmodels
+* **Options Pricing**: Black-Scholes, Greeks, IV solver
+* **Visualization**: Plotly, Matplotlib, Seaborn
+* **Dashboard**: Streamlit
+* **Data**: yfinance
 
 ---
 
-## 📁 Repository Structure (Suggested)
+## 📈 Supported Asset Classes
+
+| Asset Class | Status |
+|-------------|--------|
+| **Equities** | ✅ Full workflow (screening, scoring, optimization, execution, backtesting) |
+| **Forex** | 🟡 Pair selection available; portfolio construction coming soon |
+| **Commodities** | 🔜 Under development |
+
+## 📁 Repository Structure
 
 ```
-├── data/               # Market data & preprocessing
-├── pricing/            # Options pricing & Greeks
-├── regime/             # Regime detection models
-├── strategies/         # Options strategies & payoff logic
-├── risk/               # Greeks & IV risk framework
-├── execution/          # Trade execution & rebalancing
-├── dashboard/          # Frontend visualizations
-├── notebooks/          # Research & experiments
+├── data/               # Market data & preprocessing (raw, processed, external)
+├── pricing/            # Black-Scholes pricing, Greeks, payoff diagrams
+├── regime/             # Volatility & trend regime detection
+├── strategies/         # Strategy registry & scoring (Momentum, Mean Rev, Value, Growth, Quality)
+├── hardfilters/        # Universe filtering (equities, forex, data loaders)
+├── forecasting/        # Expected return estimation
+├── risk/               # Risk models (covariance, VaR) & pipeline
+├── optimization/       # Mean-variance optimizer & hybrid allocator
+├── execution/          # Trade execution engine & portfolio state
+├── signals/            # Signal generation & logging
+├── rebalance/          # Rebalance controller (orchestration layer)
+├── backtesting/        # Backtester, metrics & reports
+├── performance/        # Analytics engine & visualization
+├── utils/              # Formatting, trading calendar utilities
+├── main.py             # Streamlit dashboard application
 └── README.md
 ```
 
@@ -91,7 +107,7 @@ A quantitative options trading system that **detects market regimes**, **selects
 
 ## 🔮 Future Enhancements
 
-* Multi-asset options support (ETFs, indices, crypto options)
+* Full commodities trading workflow
 * Reinforcement learning for adaptive strategy allocation
 * Broker API integration for live deployment
 * Explainable AI layer for strategy decisions
